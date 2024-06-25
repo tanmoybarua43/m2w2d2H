@@ -14,6 +14,18 @@ header {
     background:  no-repeat lightgrey url(images/cliff_ocean.jpg);
     background-size: cover;
 }
+#cliffs header {
+    background: no-repeat lightgray url("../images/forest_cliff.jpg");
+    background-size: cover;
+  }
+  #activity header {
+    background: no-repeat lightgray url("../images/runfly.jpg");
+    background-size: cover;
+  }
+  #contact header {
+    background: no-repeat lightgray url("../images/runfly.jpg");
+    background-size: cover;
+  }
 .main-header {
     background-color:rgb(255, 255, 255, 0.8) ;
     width: 700px;
@@ -219,3 +231,41 @@ footer #nondisclaimer .social .fa-instagram {
         width: 231px;
     }
 }
+
+
+/* activity page */
+table {
+    width: 1000px;
+    margin: 4em auto 0 auto;
+  }
+  caption {
+    background: #852b1b;
+    height: 40px;
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+.table thead tr th{
+    background-color: #bde1ff;
+  }
+.table tbody tr td{
+    background-color: #eeffe6;
+    text-align: center;
+  }
+  th, td {
+    width: 225px;
+    height: 75px;
+    vertical-align: middle;
+    border: solid 1px #852b1b;
+  }
+.table thead tr th:first-child {
+    width: 125px;
+    height: 50px;
+    background: #4977d1;
+    color: #fff;
+  }
+  .table tbody tr td:first-child {
+    font-weight: bold;
+    background: #bde1ff;
+  }
+
