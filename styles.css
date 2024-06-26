@@ -15,15 +15,15 @@ header {
     background-size: cover;
 }
 #cliffs header {
-    background: no-repeat lightgray url("../images/forest_cliff.jpg");
+    background: no-repeat lightgray url(/images/forest_cliff.jpg);
     background-size: cover;
   }
   #activity header {
-    background: no-repeat lightgray url("../images/runfly.jpg");
+    background: no-repeat lightgray url(/images/runfly.jpg);
     background-size: cover;
   }
   #contact header {
-    background: no-repeat lightgray url("../images/runfly.jpg");
+    background: no-repeat lightgray url(/images/runfly.jpg);
     background-size: cover;
   }
 .main-header {
