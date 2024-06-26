@@ -78,38 +78,38 @@
          <tbody>
            <tr>
              <td>Hiking</td>
-             <td>Kayak</td>
-             <td>Skydiving</td>
-             <td>Biking</td>
-             <td>Camping</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Kayak</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Skydiving</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Biking</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Camping</td>
            </tr>
            <tr>
              <td>College Hikes</td>
-             <td>Western Kayak Meetup</td>
-             <td>Seacliff Diving</td>
-             <td>Bicycle for One</td>
-             <td>Youth Camp</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Western Kayak Meetup</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Seacliff Diving</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Bicycle for One</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Youth Camp</td>
            </tr>
            <tr>
              <td>Family Fun</td>
-             <td>Not Available</td>
-             <td>Sky is the limit</td>
-             <td>Not Available</td>
-             <td>Rent a Tent</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Not Available</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Sky is the limit</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Not Available</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Rent a Tent</td>
            </tr>
            <tr>
              <td>Treasure Trails</td>
-             <td>Youth Kayaking</td>
-             <td>Not Available</td>
-             <td>Bike Meetup Group</td>
-             <td>Campground Adventure</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Youth Kayaking</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Not Available</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Bike Meetup Group</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Campground Adventure</td>
            </tr>
            <tr>
              <td>Canyon Explorer</td>
-             <td>Kayak Down</td>
-             <td>Sky Diving for Beginners</td>
-             <td>Not Available</td>
-             <td>Sunset Camping</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Kayak Down</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Sky Diving for Beginners</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Not Available</td>
+             <td data-bs-toggle="modal" data-bs-target="#activityModal">Sunset Camping</td>
            </tr>
          </tbody>
        </table>
@@ -177,12 +177,60 @@
   </footer>
   </div>
 
+
+  <!-- Modal for Activity Details -->
+  <div class="modal fade" id="activityModal" tabindex="-1" aria-labelledby="activityModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="activityModalLabel">Activity Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modal-body-data">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Get Info</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
   <!-- Bootstrap jQuery -->
 
   <!-- Bootstrap Popper -->
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+  
+  $('tbody td').not(':contains("Not Available")').click(function() {
+      var content = $(this).text(); //get text content of cell
+      var selectedCol = $('thead tr th').eq($(this).index()).text();
+      $(this).toggleClass('selected');
+      $('#displaySelected').show();
+
+      if ($(this).hasClass("selected")) { //check if selected cell has class 
+        $('#displaySelected').css("visibility", "visible"); //make display box visible 
+        $('#displaySelected').css("margin","2em 0"); 
+        $('#displaySelected').css("border","1px solid black");
+        $('#displaySelected').css("padding","20px");////add spaces above display box 
+        $('#modal-body-data').append("<p>"+content+" at "+selectedCol+"</p>");
+      } else { //if selected cell don't have class
+      $('#modal-body-data p:contains('+content+')').remove(); //remove child element
+      if ($('#result').has('p').length == false) { //check if there are any child elements within parent
+      $('#displaySelected').css("visibility","hidden"); //make display box hidden 
+      $('#displaySelected').css("margin-top", "0"); //remove spaces above display box
+      }
+    }
+
+  });
+});
+  </script>
 </body>
 
 </html>

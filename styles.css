@@ -269,3 +269,8 @@ table {
     background: #bde1ff;
   }
 
+
+  .selected {
+    background-color: #a0d434!important;
+    color: #fff!important;
+  }
